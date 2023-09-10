@@ -26,21 +26,23 @@ class Trazo {
     }
 
     update() {
-        if (this.angle < this.angle_final)
-            this.angle += 0.01
-        else this.init()
+        // if (this.angle < this.angle_final)
+        //     this.angle += 0.01
+        // else this.init()
 
     }
 
     show() {
-        if (this.angle < this.angle_final)
+        while (this.angle < this.angle_final) {
             this.angle += 0.01
-        let r = map(this.angle, 0, this.angle_final,
-            this.r_min, this.r_max)
-        translate(this.x, this.y)
-        rotate(this.angle + this.rotation)
-        stroke(this.color)
-        fill(this.color)
-        ellipse( this.curvature, 0, r)
+            let r = map(this.angle, 0, this.angle_final,
+                this.r_min, this.r_max)
+            translate(this.x, this.y)
+            rotate(this.angle + this.rotation)
+            stroke(this.color)
+            fill(this.color)
+            ellipse( this.curvature, 0, r)
+        }
+        this.init()
     }
 }

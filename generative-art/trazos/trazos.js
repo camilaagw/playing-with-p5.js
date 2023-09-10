@@ -8,6 +8,6 @@ function setup() {
 
 function draw() {
 
-    trazo.update()
+    // trazo.update()
     trazo.show()
 }
