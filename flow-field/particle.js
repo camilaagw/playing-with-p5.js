@@ -4,7 +4,7 @@ class Particle {
         this.pos = createVector(random(width), random(height));
         this.vel = createVector(0, 0);
         this.acc = createVector(0, 0);
-        this.maxspeed = 4;
+        this.maxspeed = 2;
     }
 
     update() {
@@ -35,7 +35,8 @@ class Particle {
     }
 
     show() {
-        stroke(0)
-        ellipse(this.pos.x, this.pos.y, 5)
+        stroke(0, 100)
+        //ellipse(this.pos.x, this.pos.y, 5)
+        point(this.pos.x, this.pos.y)
     }
 }
