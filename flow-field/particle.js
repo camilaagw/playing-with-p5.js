@@ -1,10 +1,13 @@
-function Particle() {
-    this.pos = createVector(random(width), random(height));
-    this.vel = createVector(0, 0);
-    this.acc = createVector(0, 0);
-    this.maxspeed = 4;
+class Particle {
 
-    this.update = function() {
+    constructor() {
+        this.pos = createVector(random(width), random(height));
+        this.vel = createVector(0, 0);
+        this.acc = createVector(0, 0);
+        this.maxspeed = 4;
+    }
+
+    update() {
         this.vel.add(this.acc);
         this.vel.limit(this.maxspeed)
         this.pos.add(this.vel);
@@ -12,18 +15,18 @@ function Particle() {
         this.edges()
     }
 
-    this.applyForce = function(force) {
+    applyForce(force) {
         this.acc.add(force);
     }
 
-    this.edges = function () {
+    edges() {
         if (this.pos.x > width) this.pos.x = 0
         if (this.pos.x < 0) this.pos.x = width
         if (this.pos.y > height) this.pos.y = 0
         if (this.pos.y < 0) this.pos.y = height
     }
 
-    this.follow = function(flowfield) {
+    follow(flowfield) {
         let x = floor(this.pos.x / scale)
         let y = floor(this.pos.y / scale)
         let index = x + y * cols
@@ -31,7 +34,7 @@ function Particle() {
         this.applyForce(force)
     }
 
-    this.show = function () {
+    show() {
         stroke(0)
         ellipse(this.pos.x, this.pos.y, 5)
     }
