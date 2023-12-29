@@ -20,10 +20,15 @@ class Particle {
     }
 
     edges() {
-        if (this.pos.x > width) this.pos.x = 0
-        if (this.pos.x < 0) this.pos.x = width
-        if (this.pos.y > height) this.pos.y = 0
-        if (this.pos.y < 0) this.pos.y = height
+
+        if (this.pos.x > width) this.pos = createVector(0, random(height))
+        if (this.pos.x < 0) this.pos= createVector(width, random(height))
+        if (this.pos.y > height) this.pos=createVector(random(width), 0)
+        if (this.pos.y < 0) this.pos=createVector(random(width), height)
+        // if (this.pos.x > width) this.pos.x = 0
+        // if (this.pos.x < 0) this.pos.x = width
+        // if (this.pos.y > height) this.pos.y = 0
+        // if (this.pos.y < 0) this.pos.y = height
     }
 
     follow(flowfield) {
@@ -35,8 +40,14 @@ class Particle {
     }
 
     show() {
-        stroke(0, 100)
-        //ellipse(this.pos.x, this.pos.y, 5)
-        point(this.pos.x, this.pos.y)
+        stroke(255, 1)
+        const dir = this.vel.copy()
+        dir.setMag(255)
+        fill(-dir.x - dir.y, dir.x, dir.y, 30)
+        //stroke(0, 1)
+        //fill(0, 0, 0, 1)
+        //fill(0)
+        ellipse(this.pos.x, this.pos.y, sliders.ParticleRadious.value())
+        // point(this.pos.x, this.pos.y)
     }
 }
