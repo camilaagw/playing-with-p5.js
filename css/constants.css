@@ -1,0 +1,18 @@
+:root {
+    /* Color */
+    --main-color:#142737; /* #15c3b7*/
+    --highlight-color: #0a2d48;
+    /* --color-gradient: linear-gradient(135deg, #0a78b8 0%, var(--color-highlight) 100%);
+    --color-gradient-text: white;
+    --color-gradient-contrast: rgb(17, 17, 46);
+    --color-light-text: #575555;
+    --color-light-emphasis: #f7f7f7;
+    --card-border-color: #efeeea; */
+
+    /* Typography */
+    --body-font: "Optima", "Merriweather", sans-serif;
+    --style-font: "Bad Script";
+
+    /* Dimensions */
+    --squares-size: 200px;
+}

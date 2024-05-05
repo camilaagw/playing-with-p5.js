@@ -1,10 +1,11 @@
 class Particle {
 
-    constructor() {
+    constructor(particleRadious = null) {
         this.pos = createVector(random(width), random(height));
         this.vel = createVector(0, 0);
         this.acc = createVector(0, 0);
         this.maxspeed = 2;
+        this.particleRadious = particleRadious;
     }
 
     update() {
@@ -47,7 +48,13 @@ class Particle {
         //stroke(0, 1)
         //fill(0, 0, 0, 1)
         //fill(0)
-        ellipse(this.pos.x, this.pos.y, sliders.ParticleRadious.value())
+        if (this.maxspeed !== null) {
+            ellipse(this.pos.x, this.pos.y, this.particleRadious)
+        }
+        else {
+            ellipse(this.pos.x, this.pos.y, sliders.ParticleRadious.value())
+        }
+        // Is there a better way to do this??
         // point(this.pos.x, this.pos.y)
     }
 }

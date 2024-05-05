@@ -51,7 +51,7 @@ class Particle {
         //stroke(0, 1)
         //fill(0, 0, 0, 1)
         //fill(0)
-        ellipse(this.pos.x, this.pos.y, sliders.ParticleRadious.value())
+        ellipse(this.pos.x, this.pos.y, 2)
         // point(this.pos.x, this.pos.y)
     }
 }

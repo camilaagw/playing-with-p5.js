@@ -1,0 +1,94 @@
+@import url(constants.css);
+
+html,  body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--main-color);
+    font-family: var(--body-font);
+  }
+
+  /* Header */
+  header {
+    width: 100%;
+  }
+  h1 {
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-family: var(--style-font);
+    font-weight: 800;
+    font-style: normal;
+  }
+  .header-line-container {
+    width: 98%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+  }
+  .header-line {
+    width: 45%;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--main-color);
+  }
+
+/* Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 30px;
+    width: 80%;
+    padding: 10px;
+  }
+  .gallery-item {
+    height: var(--squares-size);
+    width: var(--squares-size);
+    border-radius: 0px;
+    border: var(--main-color) solid 8px;
+  }
+  .container {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+  .overlay {
+    opacity: 0;
+    transition: .5s ease;
+    font-family: "Bad Script", cursive;
+    font-size: 1.4em;
+    color: white;
+    background-color: var(--highlight-color);
+    position: absolute; /* Overlay positioned absolutely to fit container */
+    top: 8px; /* Same as gallery-item border*/
+    left: 50%;  /* Aligns the left edge of the element at the center */
+    transform: translateX(-50%); /* Shifts the element left by half its width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--squares-size);
+    width: var(--squares-size);
+  }
+  .overlay:hover {
+    opacity: 0.65;
+  }
+
+/* Footer */
+  footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+    font-family: var(--style-font);
+    font-weight: 800;
+    font-style: normal;
+  }

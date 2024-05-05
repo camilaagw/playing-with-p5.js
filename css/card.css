@@ -1,0 +1,33 @@
+@import url(constants.css);
+
+body, html {
+    height: 100%; /* Full height */
+    margin: 0; /* Reset default margin */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align items horizontally */
+    justify-content: center; /* Center-align items vertically */
+    font-family: var(--style-font);
+}
+canvas {
+    border: 10px solid var(--main-color) ; /* Adds a border around the canvas */
+}
+#backButton {
+    position: fixed; /* Fix position to the top-left corner */
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #dbdfe4; /* Light grey background */
+    color: #5d5e6b; /* Dark text color */
+    text-decoration: none; /* Remove underline from link */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: start;
+    font-family: var(--body-font);
+}
+
+p {
+    font-family: var(--body-font);
+    color: #46464b;
+}

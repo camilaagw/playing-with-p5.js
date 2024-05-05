@@ -5,44 +5,38 @@ let colors = [
     "#BDE0FE",
     "#A2D2FF"
 ]
-let next_color = 0;
 
 class Trazo {
-    constructor() {
-        this.init()
-    }
-
-    init() {
-        this.r_min = random(2, 20)
-        this.r_max = random(this.r_min + 10, 30)
-        this.rotation = random(0, 2*PI)
-        this.angle = 0
-        this.angle_final = random(0.06, 3.1416)
-        this.color = colors[next_color];
-        next_color = (next_color + 1) % colors.length
-        this.x = random(width)
-        this.y = random(height)
-        this.curvature = random(50, 200)
-    }
-
-    update() {
-        // if (this.angle < this.angle_final)
-        //     this.angle += 0.01
-        // else this.init()
-
+    constructor(id) {
+        this.id = id;
     }
 
     show() {
-        while (this.angle < this.angle_final) {
-            this.angle += 0.01
-            let r = map(this.angle, 0, this.angle_final,
-                this.r_min, this.r_max)
-            translate(this.x, this.y)
-            rotate(this.angle + this.rotation)
-            stroke(this.color)
-            fill(this.color)
-            ellipse( this.curvature, 0, r)
+        const sliderValue = sliders.r_min.value()
+
+        const id = this.id
+        const r_min = noise(id) * sliderValue //random(2, 20)
+        const r_max = noise(id + 3) * 20 + 10
+        const rotation = noise(id * sliders.rotation_noise.value() / 255) * 2*PI
+        const angle_final = noise(id) * 3 + 0.06
+        const color = colors[id % colors.length];
+        const x = noise(id * sliders.y_noise.value() / 255) * width
+        const y = noise(id * sliders.x_noise.value() / 255) * height
+        const curvature = noise(id*id + 10) * 150 + 50
+
+        push()
+        translate(x, y)
+        stroke(color)
+        fill(color)
+        let angle = 0;
+        while (angle < angle_final) {
+            angle += 0.01
+            let r = map(angle, 0, angle_final, r_min, r_max)
+            push()
+            rotate(angle + rotation)
+            ellipse(curvature, 0, r)
+            pop()
         }
-        this.init()
+        pop()
     }
 }
