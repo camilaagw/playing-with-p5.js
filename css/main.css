@@ -83,6 +83,10 @@ html,  body {
     opacity: 0.65;
   }
 
+  .darker-overlay:hover {
+    opacity: 0.85;
+  }
+
 /* Footer */
   footer {
     margin-top: auto;
