@@ -1,19 +1,19 @@
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(500, 500);
     collideDebug(true);
   }
-  
+
   // Return an object containing the x,y position of the intersection
   // using the optional calcIntersection boolean:
 //   var hit = false;
-  
+
   function draw() {
       background(0);
-      stroke('red');
+      stroke('#06D6A0');
       strokeWeight(5);
       line(200, 300, 100, 150);
-      
-     
+
+
 
       function ligth(source) {
         stroke(255, 10);
@@ -33,14 +33,14 @@ function setup() {
       ligth(mousePoint)
       mousePoint.add(100)
       ligth(mousePoint)
-  
+
       // Use vectors as input:
       // const p1    = createVector(200, 300);
       // const p2    = createVector(100, 150);
       // const mouse = createVector(mouseX, mouseY);
       // const p4    = createVector(350, 50);
       // hit = collideLineLineVector(p1, p2, mouse, p4, true);
-      
+
     //   stroke(hit.x ? color('red') : 0);
     //   print('X-intersection:', hit.x);
     //   print('Y-intersection:', hit.y);
