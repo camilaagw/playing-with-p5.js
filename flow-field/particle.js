@@ -44,7 +44,7 @@ class Particle {
         stroke(255, 1)
         const dir = this.vel.copy()
         dir.setMag(255)
-        fill(-dir.x - dir.y, dir.x, dir.y, 30)
+        fill(-dir.x - dir.y, dir.x, dir.y, 90)
         //stroke(0, 1)
         //fill(0, 0, 0, 1)
         //fill(0)

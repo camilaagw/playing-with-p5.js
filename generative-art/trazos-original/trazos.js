@@ -2,7 +2,7 @@ let trazos = [];
 let animating = true;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(500, 500);
     background(0);
     for (let i=0; i < 5; i++) {
         trazos.push(new Trazo())

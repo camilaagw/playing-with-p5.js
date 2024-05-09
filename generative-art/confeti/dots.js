@@ -7,7 +7,7 @@ let colors = [
 ]
 let next_color = 0;
 
-class Trazo {
+class Dots {
     constructor() {
         this.init()
     }
@@ -23,13 +23,6 @@ class Trazo {
         this.x = random(width)
         this.y = random(height)
         this.curvature = random(50, 200)
-    }
-
-    update() {
-        // if (this.angle < this.angle_final)
-        //     this.angle += 0.01
-        // else this.init()
-
     }
 
     show() {

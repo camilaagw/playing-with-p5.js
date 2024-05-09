@@ -5,6 +5,13 @@ let colors = [
     "#BDE0FE",
     "#A2D2FF"
 ]
+let colors_alt = [
+    "#81F7E5",
+    "#A9F8FB",
+    "#B6DCFE",
+    "#CDEDFD",
+    "#DEC5E3"
+]
 let next_color = 0;
 
 class Trazo {
@@ -14,7 +21,7 @@ class Trazo {
 
     init() {
         this.r_min = random(2, 20)
-        this.r_max = random(this.r_min + 10, 30)
+        this.r_max = random(this.r_min + 10, 40)
         this.rotation = random(0, 2*PI)
         this.angle = 0
         this.angle_final = random(0.06, 3.1416)
