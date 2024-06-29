@@ -76,8 +76,8 @@ html,  body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: var(--squares-size);
-    width: var(--squares-size);
+    height: calc(var(--squares-size) + 4px);
+    width: calc(var(--squares-size) + 5px);
   }
   .overlay:hover {
     opacity: 0.65;
