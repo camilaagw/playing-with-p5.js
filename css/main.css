@@ -91,8 +91,10 @@ html,  body {
   footer {
     margin-top: auto;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     font-family: var(--style-font);
     font-weight: 800;
     font-style: normal;
+    width: 96%;
+    border-top: 0.04rem solid #a6b8c7;
   }
