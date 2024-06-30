@@ -31,4 +31,5 @@ canvas {
 p {
     font-family: var(--body-font);
     color: #46464b;
+    text-align: center;
 }
