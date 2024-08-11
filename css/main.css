@@ -70,14 +70,14 @@ html,  body {
     color: white;
     background-color: var(--highlight-color);
     position: absolute; /* Overlay positioned absolutely to fit container */
-    top: 8px; /* Same as gallery-item border*/
+    top: calc(8px - 1px); /* Slighly over gallery-item border*/
     left: 50%;  /* Aligns the left edge of the element at the center */
     transform: translateX(-50%); /* Shifts the element left by half its width */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--squares-size) + 5px);
-    width: calc(var(--squares-size) + 5px);
+    height: calc(var(--squares-size) + 2px);
+    width: calc(var(--squares-size) + 2px);
   }
   .overlay:hover {
     opacity: 0.65;
