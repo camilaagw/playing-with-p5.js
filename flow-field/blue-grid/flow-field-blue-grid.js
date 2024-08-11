@@ -5,28 +5,14 @@ let flowfield;
 let noisefield;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(500, 500);
     cols = floor(width / scale);
     rows = floor(height / scale);
     flowfield = new Array(cols, rows);
     noisefield = new Array(cols, rows);
-
-    let pauseButton = createButton('Pause / Resume');
-    pauseButton.position(30, 420);
-    pauseButton.mousePressed(() => {
-        if (isLooping()) {
-            noLoop()
-        } else {
-            loop()
-        }
-    });
-
 }
 
 function draw() {
-    //background(255, sliders.BackgroundOpacity.value()) //get pelitos
-    //background(255) // Get particles flowing
-
     let yoff = 0;
     zoff += 0.007;
     for (let y=0; y < rows; y++) {
