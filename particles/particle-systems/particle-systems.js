@@ -1,4 +1,5 @@
 let systems = []
+let animating = true;
 
 function setup() {
     createCanvas(400, 400);
@@ -22,6 +23,12 @@ function draw() {
     if (existsDeadSystem){
         systems = systems.filter(s => s.isAlive())
     }
+}
+
+function mousePressed() {
+    animating = !animating
+    if (animating) loop()
+    else noLoop()
 }
 
 
