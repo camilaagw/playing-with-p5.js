@@ -8,23 +8,23 @@ function setup() {
 function draw() {
     background(0)
 
-    let existsDeadSystem = false
+    if (abs(pmouseX - mouseX) > 0 || abs(pmouseY - mouseY) > 0) {
+        systems.push(new System(mouseX, mouseY));
+      }
 
+    let existsDeadSystem = false
     for (let system of systems) {
         system.update()
         system.display()
-
         existsDeadSystem |= !system.isAlive
     }
-
     existsDeadSystem = true
     if (existsDeadSystem){
         systems = systems.filter(s => s.isAlive())
     }
-    //console.log(systems.length)
-
 }
 
-function mouseMoved() {
-    systems.push(new System(mouseX, mouseY))
-}
+
+// function mouseMoved() {
+//     systems.push(new System(mouseX, mouseY))
+// }
