@@ -2,8 +2,9 @@ let increment = 0.01
 let timeOffset = 0
 
 // TODO: Test the simplex noise
-//let simplexNoise
-//simplexNoise = noise = new OpenSimplexNoise(Date.now());
+// let simplexNoise
+// simplexNoise = noise = new OpenSimplexNoise(Date.now());
+// TODO: Compare with this version: https://editor.p5js.org/codingtrain/sketches/MPqnctIGg
 
 function setup() {
     createCanvas(400, 400);
