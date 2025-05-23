@@ -1,45 +1,58 @@
 // The Mandelbrot set is the set of complex numbers c for which the function f(z) = z^2 + c
 // does not diverge when iterated from z=0 (remains bounded)
 // Another way of visualizing the mandelbrot: https://github.com/jaimeliew1/Mandelbrot?tab=readme-ov-file
+// Other idea: Dynamically modify place of centering
 
-const ITERATIONS = 1000;
-const centerX =  -0.743643887037151;
-const centerY = 0.13182590420533;
-let amplitude
+
+let currentMaxIterations
+
+// View boundaries for the current frame
+let viewMinX, viewMaxX, viewMinY, viewMaxY;
+
+// Values to calculate view boundaries
+let centerX, centerY, amplitude
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(450, 450);
     pixelDensity(1);  // Turns off high density of the display
+    loadPixels(); //  Populates the pixels array
+
+    // Starting values to calculate view boundaries
+    centerX =  -0.743643887037151;
+    centerY = 0.13182590420533;
     amplitude = 3;
-    frameRate(30)
-    loadPixels()
 }
 
 function draw() {
-    minX = centerX - amplitude/2
-    maxX = centerX + amplitude/2
-    minY = centerY - amplitude/2
-    maxY = centerY + amplitude/2
 
-    for (let y = 0; y < height; y++) {
+    adjustMaxIterations()
 
-        const imaginary = (y / height) * (maxY - minY) + minY
+    viewMinX = centerX - amplitude / 2;
+    viewMaxX = centerX + amplitude / 2;
+    viewMinY = centerY - amplitude / 2;
+    viewMaxY = centerY + amplitude / 2;
 
-        for (let x = 0; x < width; x++) {
+    for (let x = 0; x < width; x++) {
 
-            const real = (x / width) * (maxX - minX) + minX
-            const iter = mandelbrotIterationStop(real, imaginary)
-            const isMaxIter =  (iter == ITERATIONS)
+        const real = viewMinX +  (x / width) * (viewMaxX - viewMinX)
 
-            const red =  isMaxIter ? 0 : iter / ITERATIONS * 255;
-            const green =  isMaxIter ? 0 : sqrt(iter) / sqrt(ITERATIONS) *  255;
-            const blue =  isMaxIter ? 0 : sqrt(iter) / sqrt(ITERATIONS) * (255 - 5) + 5;
+        for (let y = 0; y < height; y++) {
+
+            const imaginary = viewMinY + (y / height) * (viewMaxY - viewMinY)
+
+            const iter = mandelbrotIterations(real, imaginary)
+            const isMaxIter =  (iter == currentMaxIterations)
+
+            const red =  isMaxIter ? 0 : iter / currentMaxIterations * 255;
+            const green =  isMaxIter ? 0 : sqrt(iter / currentMaxIterations) *  255 + 40;
+            const blue =  isMaxIter ? 0 : sqrt(iter / currentMaxIterations) * 255 + 50;
+            const alpha = 255;
 
             const index = (x + y * width) * 4
             pixels[index + 0] = red;
             pixels[index + 1] = green;
             pixels[index + 2] = blue;
-            pixels[index + 3] = 255;
+            pixels[index + 3] = alpha
         }
     }
     updatePixels()
@@ -47,30 +60,49 @@ function draw() {
 
 }
 
-function mandelbrotIterationStop(Ca, Cb) {
-    let Za =0
-    let Zb = 0
-    for (let i = 0; i < ITERATIONS; i++) {
-        // z = z^2
-        let a2 = Za * Za - Zb * Zb
-        let b2 = 2 * Za * Zb
-        Za = a2
-        Zb = b2
-        // z = z + c
-        Za = Za + Ca
-        Zb = Zb + Cb
-        // |z^2|
-        const magSquared = Za * Za + Zb * Zb;
+/**
+ * Calculates the number of iterations before Z diverges for c
+ * @param {number} real - Real part of c
+ * @param {number} imaginary - Imaginary part of c
+ * @returns {number} Number of iterations, or currentMaxIterations if it doesn't diverge
+ */
+function mandelbrotIterations(real, imaginary) {
+    let Zr =0
+    let Zi = 0
+    for (let i = 0; i < currentMaxIterations; i++) {
+        // Z = Z^2
+        let r2 = Zr * Zr - Zi * Zi
+        let i2 = 2 * Zr * Zi
+        Zr = r2
+        Zi = i2
+        // Z = Z + c
+        Zr = Zr + real
+        Zi = Zi + imaginary
+        // |Z^2|
+        const magSquared = Zr * Zr + Zi * Zi;
         if (magSquared > 4) {
             return i;  // Early return if the point is not in the Mandelbrot set
         }
     }
-    return ITERATIONS
+    return currentMaxIterations
+}
+
+function adjustMaxIterations() {
+    if (amplitude < 0.00001) {
+        currentMaxIterations = 5000;
+    } else if (amplitude < 0.001) {
+        currentMaxIterations = 2500;
+    } else if (amplitude < 0.01) {
+        currentMaxIterations = 1500;
+    } else if (amplitude < 0.1) {
+        currentMaxIterations = 1000;
+    } else if (amplitude < 0.5) {
+        currentMaxIterations = 700;
+    }  else {
+        currentMaxIterations = 500;
+    }
 }
 
 function mousePressed() {
-    centerX = map(mouseX, 0, width, minX, maxX)
-    centerY = map(mouseY, 0, height, minY, maxY)
-    amplitude = amplitude * 0.9
+    noLoop()
 }
-
