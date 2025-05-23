@@ -21,6 +21,7 @@ function setup() {
     centerX =  -0.743643887037151;
     centerY = 0.13182590420533;
     amplitude = 3;
+
 }
 
 function draw() {
@@ -104,5 +105,9 @@ function adjustMaxIterations() {
 }
 
 function mousePressed() {
-    noLoop()
+    if (isLooping()) {
+        noLoop()
+    } else {
+        loop()
+    }
 }
