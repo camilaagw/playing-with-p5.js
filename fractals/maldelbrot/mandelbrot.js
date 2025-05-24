@@ -13,7 +13,7 @@ let viewMinX, viewMaxX, viewMinY, viewMaxY;
 let centerX, centerY, amplitude
 
 function setup() {
-    createCanvas(450, 450);
+    createCanvas(400, 400);
     pixelDensity(1);  // Turns off high density of the display
     loadPixels(); //  Populates the pixels array
 
@@ -98,7 +98,7 @@ function adjustMaxIterations() {
     } else if (amplitude < 0.1) {
         currentMaxIterations = 1000;
     } else if (amplitude < 0.5) {
-        currentMaxIterations = 700;
+        currentMaxIterations = 750;
     }  else {
         currentMaxIterations = 500;
     }
