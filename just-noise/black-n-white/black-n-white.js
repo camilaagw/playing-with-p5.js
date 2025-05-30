@@ -32,5 +32,4 @@ function draw() {
     }
     updatePixels()
     timeOffset += increment
-    //noLoop()
 }

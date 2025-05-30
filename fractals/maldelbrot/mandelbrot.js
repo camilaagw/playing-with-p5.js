@@ -21,7 +21,6 @@ function setup() {
     centerX =  -0.743643887037151;
     centerY = 0.13182590420533;
     amplitude = 3;
-
 }
 
 function draw() {
@@ -89,7 +88,7 @@ function mandelbrotIterations(real, imaginary) {
 }
 
 function adjustMaxIterations() {
-    if (amplitude < 0.00001) {
+    if (amplitude < 0.00005) {
         currentMaxIterations = 5000;
     } else if (amplitude < 0.001) {
         currentMaxIterations = 2500;
