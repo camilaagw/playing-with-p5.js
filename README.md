@@ -2,66 +2,12 @@
 
 A collection of generative art sketches, interactive simulations, and algorithm visualizations created using the p5.js library. You can see them all deployed at [https://camilaagw.github.io/playing-with-p5.js/](https://camilaagw.github.io/playing-with-p5.js/). Explore the different experiments (and their code) below!
 
-<table style="border-collapse: collapse; border: none; margin-left: auto; margin-right: auto;">
-  <tbody>
-    <tr>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Falling Sands</strong></p>
-        <a href="./falling-sand/index.html"><img src="./falling-sand/falling-sand.png" alt="Falling Sands" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Flow Field</strong></p>
-        <a href="./flow-field/index.html"><img src="./flow-field/asteroids/asteroids.png" alt="Flow Field" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Flowing Lines</strong></p>
-        <a href="./flow-field-pro/index.html"><img src="./flow-field-pro/flow-field-pro.png" alt="Flowing Lines" width="200px" height="auto"></a>
-      </td>
-    </tr>
-    <tr>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Mandelbrot Set</strong></p>
-        <a href="./fractals/maldelbrot/index.html"><img src="./fractals/maldelbrot/mandelbrot.png" alt="Mandelbrot Set" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Shapes</strong></p>
-        <a href="./generative-art/shapes/shapes.html"><img src="./generative-art/shapes/shapes.png" alt="Shapes" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Spirals</strong></p>
-        <a href="./generative-art/spirals/spirals.html"><img src="./generative-art/spirals/spirals.png" alt="Spirals" width="200px" height="auto"></a>
-      </td>
-    </tr>
-    <tr>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Trazos</strong></p>
-        <a href="./generative-art/trazos-original/trazos.html"><img src="./generative-art/trazos-original/trazos.png" alt="Trazos" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Black & White</strong></p>
-        <a href="./just-noise/black-n-white/index.html"><img src="./just-noise/black-n-white/black-n-white.png" alt="Black & White" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Just a Spark</strong></p>
-        <a href="./nature-of-code/vectors/index.html"><img src="./nature-of-code/vectors/vectors.png" alt="Just a Spark" width="200px" height="auto"></a>
-      </td>
-    </tr>
-    <tr>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Particle Systems</strong></p>
-        <a href="./particles/particle-systems/index.html"><img src="./particles/particle-systems/particle-systems.png" alt="Particle Systems" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Lightning eyes</strong></p>
-        <a href="./ray-casting/index.html"><img src="./ray-casting/ray-casting.png" alt="Lightning eyes" width="200px" height="auto"></a>
-      </td>
-      <td style="border: none; text-align: center; padding: 10px; vertical-align: top;">
-        <p><strong>Robotic Tree of Life</strong></p>
-        <a href="./tree-of-life/index.html"><img src="./tree-of-life/tree-of-life.png" alt="Robotic Tree of Life" width="200px" height="auto"></a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| <!-- Col 1 --> | <!-- Col 2 --> | <!-- Col 3 --> |
+| :---: | :---: | :---: |
+| **Falling Sands** <br> [<img src="./falling-sand/falling-sand.png" alt="Falling Sands" width="200px" height="auto">](./falling-sand/index.html) | **Flow Field** <br> [<img src="./flow-field/asteroids/asteroids.png" alt="Flow Field" width="200px" height="auto">](./flow-field/index.html) | **Flowing Lines** <br> [<img src="./flow-field-pro/flow-field-pro.png" alt="Flowing Lines" width="200px" height="auto">](./flow-field-pro/index.html) |
+| **Mandelbrot Set** <br> [<img src="./fractals/maldelbrot/mandelbrot.png" alt="Mandelbrot Set" width="200px" height="auto">](./fractals/maldelbrot/index.html) | **Shapes** <br> [<img src="./generative-art/shapes/shapes.png" alt="Shapes" width="200px" height="auto">](./generative-art/shapes/shapes.html) | **Spirals** <br> [<img src="./generative-art/spirals/spirals.png" alt="Spirals" width="200px" height="auto">](./generative-art/spirals/spirals.html) |
+| **Trazos** <br> [<img src="./generative-art/trazos-original/trazos.png" alt="Trazos" width="200px" height="auto">](./generative-art/trazos-original/trazos.html) | **Black & White** <br> [<img src="./just-noise/black-n-white/black-n-white.png" alt="Black & White" width="200px" height="auto">](./just-noise/black-n-white/index.html) | **Just a Spark** <br> [<img src="./nature-of-code/vectors/vectors.png" alt="Just a Spark" width="200px" height="auto">](./nature-of-code/vectors/index.html) |
+| **Particle Systems** <br> [<img src="./particles/particle-systems/particle-systems.png" alt="Particle Systems" width="200px" height="auto">](./particles/particle-systems/index.html) | **Lightning eyes** <br> [<img src="./ray-casting/ray-casting.png" alt="Lightning eyes" width="200px" height="auto">](./ray-casting/index.html) | **Robotic Tree of Life** <br> [<img src="./tree-of-life/tree-of-life.png" alt="Robotic Tree of Life" width="200px" height="auto">](./tree-of-life/index.html) |
 
 ---
 Generated by AI.
