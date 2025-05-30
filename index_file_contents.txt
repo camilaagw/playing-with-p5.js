@@ -1,0 +1,619 @@
+File path: falling-sand/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <title>p5.js example</title>
+  <script src="../p5.js"></script>
+  <script src="falling-sand.js"></script>
+  <script src="grid.js"></script>
+  <link rel="stylesheet" href="./../css/card.css">
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Falling Sands</h1>
+  <p>Drag and press the mouse over the canvas to create sand.
+  <br>Replica of a <a href="https://www.youtube.com/watch?v=L4u7Zy_b868&ab_channel=TheCodingTrain">coding tutorial by Daniel Shiffman</a>
+  </p>
+</body>
+
+</html>
+
+---
+File path: flow-field/asteroids/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../../css/card.css">
+  <script src="../../p5.js"></script>
+  <script src="flow-field-asteroids.js"></script>
+  <script src="../particle.js"></script>
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Asteroids</h1>
+  <p>Asteroids moving in a flow field.</p>
+</body>
+
+</html>
+
+---
+File path: flow-field/blue-grid/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../../css/card.css">
+  <script src="../../p5.js"></script>
+  <script src="flow-field-blue-grid.js"></script>
+</head>
+
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Flow Field</h1>
+  <p>How I got started with flow fields.</p>
+</body>
+
+</html>
+
+---
+File path: flow-field/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.js"></script>
+  <script src="flow-field.js"></script>
+  <script src="particle.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: flow-field-pro/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../css/card.css">
+  <script src="../p5.js"></script>
+  <script src="flow-field.js"></script>
+  <script src="particle.js"></script>
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Flowing Lines</h1>
+  <p>Lines moving in a flow field.</p>
+</body>
+
+</html>
+
+---
+File path: fractals/maldelbrot/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <title>Mandelbrot</title>
+  <script src="../../p5.js"></script>
+  <script src="mandelbrot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/9.0.0/bignumber.min.js"></script>
+  <link rel="stylesheet" href="./../../css/card.css">
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Mandelbrot Set</h1>
+  <p>Mandelbrot set zooming into the valley of sea horses.</p>
+</body>
+
+</html>
+
+---
+File path: graph-traversal/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.js"></script>
+  <!-- <script src="../addons/p5.sound.js"></script> -->
+  <!-- <script src="coords.js"></script> -->
+  <script src="priorityQueue.js"></script>
+  <script src="graph-traversal.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: images/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.js"></script>
+  <script defer src="https://unpkg.com/p5.collide2d"></script>
+  <script src="images.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: index.html
+Content:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+<!-- <link rel="stylesheet" href="./css/debug.css"> -->
+<link rel="stylesheet" href="./css/main.css">
+<title>Dazzling Coding Creations</title>
+</head>
+<body>
+
+<header>
+  <h1>Dazzling Coding Creations</h1>
+  <div class="header-line-container">
+    <div class="header-line"></div>
+    <div><img src="images/logo.png" width=40px></div>
+    <div class="header-line"></div>
+  </div>
+  <h2>The home for things I draw with code.</h2>
+</header>
+
+<div class="gallery">
+  <a class="container"  href="nature-of-code/vectors/index.html">
+    <img class="gallery-item" src="nature-of-code/vectors/vectors.png" alt="Just a Spark">
+    <div class="overlay">Just a Spark</div>
+  </a>
+  <a class="container" href="falling-sand/index.html" >
+    <img class="gallery-item" src="falling-sand/falling-sand.png" alt="Falling Sands">
+    <div class="overlay">Falling Sands</div>
+    <!-- TODO: Enable falling sand automatically -->
+  </a>
+  <a class="container" href="pincelada-gpt/index.html">
+    <img class="gallery-item" src="pincelada-gpt/pincelada-bard.png" alt="Bard creation">
+    <div class="overlay darker-overlay">Bard creation</div>
+  </a>
+  <a class="container" href="generative-art/trazos-original/trazos.html">
+    <img class="gallery-item" src="generative-art/trazos-original/trazos.png" alt="Trazos">
+    <div class="overlay darker-overlay">Trazos</div>
+  </a>
+  <a class="container"  href="flow-field/asteroids/index.html" >
+    <img class="gallery-item" src="flow-field/asteroids/asteroids3.png" alt="Asteroid">
+    <div class="overlay">Asteroids</div>
+  </a>
+  <a class="container" href="generative-art/confeti/confeti.html">
+    <img class="gallery-item" src="generative-art/confeti/confeti.png" alt="Confeti">
+    <div class="overlay darker-overlay">Confeti</div>
+  </a>
+  <a class="container" href="ray-casting/index.html" >
+    <img class="gallery-item" src="ray-casting/ray-casting.png" alt="ray-casting">
+     <div class="overlay">Lightning eyes</div>
+  </a>
+  <a class="container" href="flow-field-pro/index.html" >
+    <img class="gallery-item" src="flow-field-pro/flow-field-pro.png" alt="Flowing lines">
+     <div class="overlay">Flowing Lines</div>
+  </a>
+  <a class="container" href="tree-of-life/index.html" >
+    <img class="gallery-item" src="tree-of-life/tree-of-life.png" alt="Robotic Tree">
+     <div class="overlay">Robotic Tree of Life</div>
+  </a>
+  <a class="container" href="generative-art/shapes/shapes.html" >
+    <img class="gallery-item" src="generative-art/shapes/shapes.png" alt="Shapes">
+     <div class="overlay darker-overlay">Shapes</div>
+  </a>
+  <a class="container" href="generative-art/spirals/spirals.html" >
+    <img class="gallery-item" src="generative-art/spirals/spirals.png" alt="Spirals">
+     <div class="overlay">Spirals</div>
+  </a>
+  <a class="container" href="just-noise/black-n-white/index.html" >
+    <img class="gallery-item" src="just-noise/black-n-white/black-n-white.png" alt="Spirals">
+     <div class="overlay darker-overlay">Black & White</div>
+     <!-- TODO: Remove pixel like artifacts & experiment with other types of noise -->
+  </a>
+  <a class="container" href="particles/particle-systems/index.html" >
+    <img class="gallery-item" src="particles/particle-systems/particle-systems.png" alt="Particle Systems">
+     <div class="overlay">Particle Systems</div>
+  </a>
+  <a class="container" href="fractals/maldelbrot/index.html" >
+    <img class="gallery-item" src="fractals/maldelbrot/mandelbrot.png" alt="Particle Systems">
+     <div class="overlay">Mandelbrot Set</div>
+  </a>
+  <!-- <a class="container" href="flow-field/blue-grid/index.html" >
+    <img class="gallery-item" src="flow-field/blue-grid/blue-grid.png" alt="Flowing field">
+     <div class="overlay">Flow Field</div>
+  </a> -->
+</div>
+
+<p class="fake-end-space"></p>
+
+<footer>
+  Copyright - All rights reserved
+</footer>
+
+</body>
+</html>
+
+---
+File path: just-noise/black-n-white/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../../css/card.css">
+  <script src="../../p5.js"></script>
+  <script src="black-n-white.js"></script>
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Black & White</h1>
+  <p>
+    2D Noise mapped to black and white.
+    <br>Replica of a <a href="https://www.youtube.com/watch?v=Lv9gyZZJPE0&ab_channel=TheCodingTrain">coding tutorial by Daniel Shiffman</a>.
+  </p>
+</body>
+
+</html>
+
+---
+File path: nature-of-code/particles/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../../p5.js"></script>
+  <script src="particles.js"></script>
+  <script src="walker.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: nature-of-code/vectors/index.html
+Content:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../../css/card.css">
+    <script src="../../p5.js"></script>
+    <script src="vectors.js"></script>
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Just a Spark</h1>
+  <p>A spark created with radial vectors</p>
+</body>
+
+</html>
+
+---
+File path: particles/particle-systems/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../../css/card.css">
+  <script src="../../p5.js"></script>
+  <script src="particle.js"></script>
+  <script src="system.js"></script>
+  <script src="particle-systems.js"></script>
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Particle Systems</h1>
+  <p>
+    Move the mouse to create systems of concentric particles.
+    <br>Inspired by a <a href="https://www.youtube.com/watch?v=QlpadcXok8U">coding tutorial from Patt Vira</a>.
+  </p>
+</body>
+
+</html>
+
+---
+File path: pincelada-gpt/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bard creation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../css/card.css">
+  <script src="../p5.js"></script>
+  <script src="pincelada-bard.js"></script>
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Bard creation</h1>
+  <p>Some code produced by Bard/Gemini when asked about generating art.</p>
+</body>
+</html>
+
+---
+File path: random-walker/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.js"></script>
+  <!-- <script src="coords.js"></script> -->
+  <script src="random-walker.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: ray-casting/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../css/card.css">
+  <script src="../p5.js"></script>
+  <script defer src="https://unpkg.com/p5.collide2d"></script>
+  <script src="ray-casting.js"></script>
+</head>
+<body>
+  <body>
+    <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+    <h1>Lightning eyes</h1>
+    <p>The lightning power of ray-casting.
+      <br>Replica of a <a href="https://www.youtube.com/watch?v=TOEi6T2mtHo&ab_channel=TheCodingTrain">coding tutorial by Daniel Shiffman</a>
+    </p>
+  </body>
+</body>
+</html>
+
+---
+File path: self-avoiding/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.js"></script>
+  <script src="coords.js"></script>
+  <script src="randomly-traverse-all-paths.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: shortest-path/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.js"></script>
+  <!-- <script src="../addons/p5.sound.js"></script> -->
+  <!-- <script src="coords.js"></script> -->
+  <script src="priorityQueue.js"></script>
+  <script src="shortest-path.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: shortest-path-a-star/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <script src="../p5.js"></script>
+  <script src="priorityQueue.js"></script>
+  <script src="shortest-path-a-star.js"></script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
+
+---
+File path: tree-of-life/index.html
+Content:
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <title>p5.js example</title>
+  <script src="../p5.js"></script>
+  <script src="tree-of-life.js"></script>
+  <link rel="stylesheet" href="./../css/card.css">
+</head>
+<body>
+  <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
+  <h1>Robotic Tree of Life</h1>
+  <p>Some implementation of the Tree of Life .</p>
+</body>
+
+</html>
