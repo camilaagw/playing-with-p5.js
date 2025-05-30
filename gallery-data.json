@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Just a Spark",
+    "href": "nature-of-code/vectors/index.html",
+    "image": "nature-of-code/vectors/vectors.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Falling Sands",
+    "href": "falling-sand/index.html",
+    "image": "falling-sand/falling-sand.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Bard creation",
+    "href": "pincelada-gpt/index.html",
+    "image": "pincelada-gpt/pincelada-bard.png",
+    "overlayClass": "darker-overlay"
+  },
+  {
+    "title": "Trazos",
+    "href": "generative-art/trazos-original/trazos.html",
+    "image": "generative-art/trazos-original/trazos.png",
+    "overlayClass": "darker-overlay"
+  },
+  {
+    "title": "Asteroids",
+    "href": "flow-field/asteroids/index.html",
+    "image": "flow-field/asteroids/asteroids3.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Confeti",
+    "href": "generative-art/confeti/confeti.html",
+    "image": "generative-art/confeti/confeti.png",
+    "overlayClass": "darker-overlay"
+  },
+  {
+    "title": "Lightning eyes",
+    "href": "ray-casting/index.html",
+    "image": "ray-casting/ray-casting.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Flowing Lines",
+    "href": "flow-field-pro/index.html",
+    "image": "flow-field-pro/flow-field-pro.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Robotic Tree of Life",
+    "href": "tree-of-life/index.html",
+    "image": "tree-of-life/tree-of-life.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Shapes",
+    "href": "generative-art/shapes/shapes.html",
+    "image": "generative-art/shapes/shapes.png",
+    "overlayClass": "darker-overlay"
+  },
+  {
+    "title": "Spirals",
+    "href": "generative-art/spirals/spirals.html",
+    "image": "generative-art/spirals/spirals.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Black & White",
+    "href": "just-noise/black-n-white/index.html",
+    "image": "just-noise/black-n-white/black-n-white.png",
+    "overlayClass": "darker-overlay"
+  },
+  {
+    "title": "Particle Systems",
+    "href": "particles/particle-systems/index.html",
+    "image": "particles/particle-systems/particle-systems.png",
+    "overlayClass": ""
+  },
+  {
+    "title": "Mandelbrot Set",
+    "href": "fractals/maldelbrot/index.html",
+    "image": "fractals/maldelbrot/mandelbrot.png",
+    "overlayClass": ""
+  }
+]
