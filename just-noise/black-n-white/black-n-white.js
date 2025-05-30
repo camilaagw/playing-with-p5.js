@@ -5,6 +5,7 @@ let timeOffset = 0
 // let simplexNoise
 // simplexNoise = noise = new OpenSimplexNoise(Date.now());
 // TODO: Compare with this version: https://editor.p5js.org/codingtrain/sketches/MPqnctIGg
+// TODO: Remove pixel like artifacts
 
 function setup() {
     createCanvas(400, 400);
