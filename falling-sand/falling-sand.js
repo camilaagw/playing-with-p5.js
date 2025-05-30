@@ -28,7 +28,7 @@ function mouseDragged() {
             }
             // Create grains of sand on empty cells
             if (random(1) < PAINT_BRUSH_DENSITY && grid.get(row+i, col+j)==0) {
-                grid.set(row+i, col+j, hueValue)
+                grid.set(row+i, col+j, hueValue, grid.currentCells)
             }
         }
     }
