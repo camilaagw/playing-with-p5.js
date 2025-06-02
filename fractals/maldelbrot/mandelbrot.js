@@ -1,9 +1,12 @@
-// The Mandelbrot set is the set of complex numbers c for which the function f(z) = z^2 + c
-// does not diverge when iterated from z=0 (remains bounded)
-// Another way of visualizing the mandelbrot: https://github.com/jaimeliew1/Mandelbrot?tab=readme-ov-file
-// Other idea: Dynamically modify place of centering
+/**
+ * Mandelbrot Set Visualization
+ * The Mandelbrot set is the set of complex numbers c for which the function f(z) = z^2 + c
+ * does not diverge when iterated from z=0 (remains bounded).
+ * Features automatic zooming animation and click to pause/resume.
+ * Another way of visualizing the mandelbrot: https://github.com/jaimeliew1/Mandelbrot?tab=readme-ov-file
+ */
 
-
+// Maximum iterations for escape time algorithm
 let currentMaxIterations
 
 // View boundaries for the current frame
@@ -24,30 +27,32 @@ function setup() {
 }
 
 function draw() {
-
     adjustMaxIterations()
 
+    // Calculate view boundaries based on center and amplitude
     viewMinX = centerX - amplitude / 2;
     viewMaxX = centerX + amplitude / 2;
     viewMinY = centerY - amplitude / 2;
     viewMaxY = centerY + amplitude / 2;
 
     for (let x = 0; x < width; x++) {
-
+        // Map pixel x-coordinate to complex plane real value
         const real = viewMinX +  (x / width) * (viewMaxX - viewMinX)
 
         for (let y = 0; y < height; y++) {
-
+            // Map pixel y-coordinate to complex plane imaginary value
             const imaginary = viewMinY + (y / height) * (viewMaxY - viewMinY)
 
             const iter = mandelbrotIterations(real, imaginary)
-            const isMaxIter =  (iter == currentMaxIterations)
 
+            // Color points based on iteration count. Points in the set are black
+            const isMaxIter =  (iter == currentMaxIterations)
             const red =  isMaxIter ? 0 : iter / currentMaxIterations * 255;
             const green =  isMaxIter ? 0 : sqrt(iter / currentMaxIterations) *  255 + 40;
             const blue =  isMaxIter ? 0 : sqrt(iter / currentMaxIterations) * 255 + 50;
             const alpha = 255;
 
+            // Set pixel color in the pixels array
             const index = (x + y * width) * 4
             pixels[index + 0] = red;
             pixels[index + 1] = green;
@@ -56,8 +61,7 @@ function draw() {
         }
     }
     updatePixels()
-    amplitude = amplitude * 0.95 // Animate automatically
-
+    amplitude = amplitude * 0.95 // Zoom in automatically over time
 }
 
 /**
@@ -87,6 +91,9 @@ function mandelbrotIterations(real, imaginary) {
     return currentMaxIterations
 }
 
+/**
+ * Adjusts the maximum iterations based on the current amplitude (zoom level)
+*/
 function adjustMaxIterations() {
     if (amplitude < 0.00005) {
         currentMaxIterations = 5000;
@@ -103,6 +110,9 @@ function adjustMaxIterations() {
     }
 }
 
+/**
+ * Pauses or resumes the animation when the mouse is pressed.
+ */
 function mousePressed() {
     if (isLooping()) {
         noLoop()
