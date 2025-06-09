@@ -110,13 +110,6 @@ function adjustMaxIterations() {
     }
 }
 
-/**
- * Pauses or resumes the animation when the mouse is pressed.
- */
 function mousePressed() {
-    if (isLooping()) {
-        noLoop()
-    } else {
-        loop()
-    }
+    isLooping() ? noLoop() : loop();
 }
