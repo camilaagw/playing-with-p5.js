@@ -40,10 +40,10 @@ class Dots {
         this.currentAngle = 0
         this.targetAngle = random(0, PI)
 
-        this.color = Dots.getNextCycleColor(); 
+        this.color = Dots.getNextCycleColor();
 
-        this.centerX = this.randomCenter? random(width) : width/2 
-        this.centerY =  this.randomCenter? random(height) : height/2 
+        this.centerX = this.randomCenter? random(width) : width/2
+        this.centerY =  this.randomCenter? random(height) : height/2
 
         this.circleRadius = random(this.circleSizeRange[0], this.circleSizeRange[1])
     }
@@ -52,13 +52,13 @@ class Dots {
         const ANGLE_INCREMENT = 0.01;
 
         if (!this.chaoticMode) translate(this.centerX, this.centerY);
-    
+
         // Draw the entire dots burst in one go
         while (this.currentAngle < this.targetAngle) {
 
             if (this.chaoticMode) translate(this.centerX, this.centerY);
             rotate(this.currentAngle + this.rotationOffset)
-            
+
             let dotRadius = random(this.dotSizeRange[0], this.dotSizeRange[1])
 
             stroke(this.color)

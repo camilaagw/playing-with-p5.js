@@ -66,36 +66,36 @@
   <button id="backButton" onclick="window.history.back();">Back to Gallery</button>
   <h1>Confeti</h1>
   <p>Experimenting with generative art using circles of dots.</p>
-  
+
   <div class="controls">
     <div class="preset-nav">
       <button onclick="previousPreset()">◀</button>
       <div class="preset-name" id="presetName">Classic</div>
       <button onclick="nextPreset()">▶</button>
     </div>
-    
+
     <div class="control-group">
       <label for="frameRateSlider">Frame Rate: <span id="frameRateValue">2</span></label>
       <input type="range" id="frameRateSlider" min="1" max="30" value="2" oninput="updateFrameRate(this.value)">
     </div>
-    
+
     <div class="control-group">
-      <label for="spiralSizeSlider">Spiral Size: <span id="spiralSizeValue">125</span></label>
-      <input type="range" id="spiralSizeSlider" min="20" max="300" value="125" oninput="updateSpiralSize(this.value)">
+      <label for="circleSizeSlider">Spiral Size: <span id="circleSizeValue">125</span></label>
+      <input type="range" id="circleSizeSlider" min="20" max="300" value="125" oninput="updateCircleSize(this.value)">
     </div>
-    
+
     <div class="control-group">
       <label for="dotSizeSlider">Dot Size: <span id="dotSizeValue">16</span></label>
       <input type="range" id="dotSizeSlider" min="2" max="50" value="16" oninput="updateDotSize(this.value)">
     </div>
-    
+
     <div class="control-group">
       <label>
         <input type="checkbox" id="randomCenterCheck" checked onchange="updateRandomCenter(this.checked)">
         Random Centers
       </label>
     </div>
-    
+
     <div class="control-group">
       <label>
         <input type="checkbox" id="chaoticModeCheck" onchange="updateChaoticMode(this.checked)">

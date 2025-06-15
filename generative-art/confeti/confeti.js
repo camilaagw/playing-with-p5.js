@@ -6,7 +6,7 @@
 // Animation parameters
 let params = {
     frameRate: 2,
-    spiralSize: 125,
+    circleSize: 125,
     dotSize: 16,
     randomCenter: true,
     chaoticMode: false
@@ -17,7 +17,7 @@ const presets = [
     {
         name: "Classic",
         frameRate: 2,
-        spiralSize: 125,
+        circleSize: 125,
         dotSize: 16,
         randomCenter: true,
         chaoticMode: false
@@ -25,7 +25,7 @@ const presets = [
     {
         name: "Fast Chaos",
         frameRate: 15,
-        spiralSize: 80,
+        circleSize: 80,
         dotSize: 8,
         randomCenter: true,
         chaoticMode: true
@@ -33,7 +33,7 @@ const presets = [
     {
         name: "Slow Bloom",
         frameRate: 1,
-        spiralSize: 200,
+        circleSize: 200,
         dotSize: 25,
         randomCenter: false,
         chaoticMode: false
@@ -41,7 +41,7 @@ const presets = [
     {
         name: "Tiny Burst",
         frameRate: 10,
-        spiralSize: 50,
+        circleSize: 50,
         dotSize: 4,
         randomCenter: true,
         chaoticMode: false
@@ -49,7 +49,7 @@ const presets = [
     {
         name: "Giant Swirl",
         frameRate: 3,
-        spiralSize: 300,
+        circleSize: 300,
         dotSize: 30,
         randomCenter: false,
         chaoticMode: true
@@ -100,8 +100,8 @@ function updateUI() {
     document.getElementById('presetName').textContent = presets[currentPresetIndex].name;
     document.getElementById('frameRateSlider').value = params.frameRate;
     document.getElementById('frameRateValue').textContent = params.frameRate;
-    document.getElementById('spiralSizeSlider').value = params.spiralSize;
-    document.getElementById('spiralSizeValue').textContent = params.spiralSize;
+    document.getElementById('circleSizeSlider').value = params.circleSize;
+    document.getElementById('circleSizeValue').textContent = params.circleSize;
     document.getElementById('dotSizeSlider').value = params.dotSize;
     document.getElementById('dotSizeValue').textContent = params.dotSize;
     document.getElementById('randomCenterCheck').checked = params.randomCenter;
@@ -115,9 +115,9 @@ function updateFrameRate(value) {
     dots.updateParams(params);
 }
 
-function updateSpiralSize(value) {
-    params.spiralSize = parseInt(value);
-    document.getElementById('spiralSizeValue').textContent = value;
+function updateCircleSize(value) {
+    params.circleSize = parseInt(value);
+    document.getElementById('circleSizeValue').textContent = value;
     dots.updateParams(params);
 }
 
