@@ -16,17 +16,9 @@ let params = {
 const presets = [
     {
         name: "Classic",
-        frameRate: 2,
+        frameRate: 20,
         circleSize: 125,
         dotSize: 16,
-        randomCenter: true,
-        chaoticMode: false
-    },
-    {
-        name: "Fast Chaos",
-        frameRate: 15,
-        circleSize: 80,
-        dotSize: 8,
         randomCenter: true,
         chaoticMode: true
     },
@@ -34,8 +26,16 @@ const presets = [
         name: "Slow Bloom",
         frameRate: 1,
         circleSize: 200,
-        dotSize: 25,
+        dotSize: 20,
         randomCenter: false,
+        chaoticMode: false
+    },
+    {
+        name: "Medium Burst",
+        frameRate: 2,
+        circleSize: 125,
+        dotSize: 16,
+        randomCenter: true,
         chaoticMode: false
     },
     {
