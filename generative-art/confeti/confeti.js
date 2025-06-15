@@ -26,13 +26,13 @@ const presets = [
         name: "Slow Bloom",
         frameRate: 1,
         circleSize: 200,
-        dotSize: 20,
+        dotSize: 18,
         randomCenter: false,
         chaoticMode: false
     },
     {
-        name: "Medium Burst",
-        frameRate: 2,
+        name: "Random circles",
+        frameRate: 5,
         circleSize: 125,
         dotSize: 16,
         randomCenter: true,
@@ -40,7 +40,7 @@ const presets = [
     },
     {
         name: "Tiny Burst",
-        frameRate: 10,
+        frameRate: 20,
         circleSize: 50,
         dotSize: 4,
         randomCenter: true,
@@ -67,7 +67,7 @@ function setup() {
 }
 
 function draw() {
-    background(0, 0);
+    background(0, 0); // TODO: Play with transparency
     dots.show();
     frameRate(params.frameRate);
 }
