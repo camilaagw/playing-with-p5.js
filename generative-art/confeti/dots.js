@@ -33,6 +33,7 @@ class Dots {
         this.chaoticMode = params.chaoticMode;
         this.circleSizeRange = [params.circleSize * 0.4, params.circleSize * 1.6];
         this.dotSizeRange = [params.dotSize * 0.125, params.dotSize * 1.9];
+        this.init();
     }
 
     init() {
