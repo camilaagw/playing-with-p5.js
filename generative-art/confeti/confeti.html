@@ -15,27 +15,26 @@
   <style>
     .preset-nav {
       display: flex;
-      align-items: center;
+      align-items:  center;
       justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
     }
     .preset-nav button {
       background: none;
       border: none;
-      color: #333;
+      color: #9da5a5;
       font-size: 28px;
       cursor: pointer;
-      padding: 0;
+
     }
     .preset-nav button:hover {
       color: #000;
     }
     .preset-name {
-      font-size: 24px;
-      color: #333;
+      font-size: 18px;
+      color: #9da5a5;
       min-width: 150px;
       text-align: center;
+      font-family: var(--body-font);
     }
   </style>
 </head>
@@ -44,10 +43,12 @@
   <h1>Confeti</h1>
   <p>Experimenting with generative art using circles of dots.</p>
 
+  <div id="canvas-container"></div>
+  
   <div class="preset-nav">
-    <button onclick="previousPreset()">«</button>
+    <button onclick="previousPreset()">«  </button>
     <div class="preset-name" id="presetName">Classic</div>
-    <button onclick="nextPreset()">»</button>
+    <button onclick="nextPreset()"> »</button>
   </div>
 </body>
 </html>
