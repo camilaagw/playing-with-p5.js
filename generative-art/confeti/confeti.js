@@ -98,41 +98,5 @@ function applyPreset(preset) {
 
 function updateUI() {
     document.getElementById('presetName').textContent = presets[currentPresetIndex].name;
-    document.getElementById('frameRateSlider').value = params.frameRate;
-    document.getElementById('frameRateValue').textContent = params.frameRate;
-    document.getElementById('circleSizeSlider').value = params.circleSize;
-    document.getElementById('circleSizeValue').textContent = params.circleSize;
-    document.getElementById('dotSizeSlider').value = params.dotSize;
-    document.getElementById('dotSizeValue').textContent = params.dotSize;
-    document.getElementById('randomCenterCheck').checked = params.randomCenter;
-    document.getElementById('chaoticModeCheck').checked = params.chaoticMode;
 }
 
-// Parameter update functions
-function updateFrameRate(value) {
-    params.frameRate = parseInt(value);
-    document.getElementById('frameRateValue').textContent = value;
-    dots.updateParams(params);
-}
-
-function updateCircleSize(value) {
-    params.circleSize = parseInt(value);
-    document.getElementById('circleSizeValue').textContent = value;
-    dots.updateParams(params);
-}
-
-function updateDotSize(value) {
-    params.dotSize = parseInt(value);
-    document.getElementById('dotSizeValue').textContent = value;
-    dots.updateParams(params);
-}
-
-function updateRandomCenter(checked) {
-    params.randomCenter = checked;
-    dots.updateParams(params);
-}
-
-function updateChaoticMode(checked) {
-    params.chaoticMode = checked;
-    dots.updateParams(params);
-}
