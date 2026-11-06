@@ -1,0 +1,18 @@
+:root {
+  /* Colors */
+  --main-color: #142737;
+  --highlight-color: #0a2d48;
+  --bg-color: #ffffff;
+  --text-muted: #5d5e6b;
+  --border-color: #a6b8c7;
+  --card-bg: #f8fafc;
+
+  /* Typography */
+  --body-font: "Optima", "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --style-font: "Bad Script", cursive;
+
+  /* Layout & Sizing */
+  --card-size: 220px;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
