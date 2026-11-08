@@ -1,0 +1,55 @@
+.header {
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.titleLink {
+  color: var(--main-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.titleLink:hover {
+  opacity: 0.85;
+}
+
+.lineContainer {
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+}
+
+.line {
+  flex: 1;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--main-color);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+.subtitle {
+  font-family: var(--style-font);
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin: 12px 0 0 0;
+  color: var(--main-color);
+}
