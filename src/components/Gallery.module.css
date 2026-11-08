@@ -3,6 +3,59 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 2rem;
+}
+
+.controlsContainer {
+  width: 90%;
+  max-width: 960px;
+  margin: 1.5rem auto 1.75rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.searchBox {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 40px 10px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  color: var(--main-color);
+  font-size: 0.95rem;
+  font-family: var(--body-font);
+  outline: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.searchInput:focus {
+  border-color: var(--accent-color);
+  box-shadow: var(--glow);
+}
+
+.searchInput::placeholder {
+  color: var(--text-dim);
+}
+
+.clearSearchBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px;
 }
 
 .filterBar {
@@ -10,47 +63,77 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin: 1rem auto 1.5rem auto;
-  max-width: 900px;
   padding: 0 1rem;
 }
 
 .filterBtn {
-  background: transparent;
+  background: var(--bg-surface);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 20px;
   font-size: 0.82rem;
   font-family: var(--body-font);
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .filterBtn:hover {
-  border-color: var(--main-color);
+  border-color: var(--accent-color);
   color: var(--main-color);
+  transform: translateY(-1px);
 }
 
 .activeFilter {
-  background-color: var(--main-color);
-  border-color: var(--main-color);
+  background: var(--accent-gradient) !important;
+  border-color: transparent !important;
   color: #ffffff !important;
+  box-shadow: var(--glow) !important;
+}
+
+.resultsCount {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: -6px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 30px;
-  width: 85%;
-  max-width: 1100px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 32px;
+  width: 90%;
+  max-width: 1180px;
   padding: 10px;
   margin: 0 auto;
   justify-items: center;
 }
 
 .emptyState {
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
+  text-align: center;
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.resetBtn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--accent-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.resetBtn:hover {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: #ffffff;
 }

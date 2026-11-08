@@ -7,8 +7,10 @@
 
 .canvasContainer :global(canvas) {
   display: block;
-  border: 10px solid var(--main-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 8px solid var(--canvas-border);
+  box-shadow: var(--shadow-xl);
+  border-radius: 8px;
   max-width: 100%;
   height: auto;
+  transition: border-color 0.3s ease;
 }

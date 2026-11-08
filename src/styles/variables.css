@@ -1,18 +1,52 @@
 :root {
-  /* Colors */
-  --main-color: #142737;
-  --highlight-color: #0a2d48;
-  --bg-color: #ffffff;
-  --text-muted: #5d5e6b;
-  --border-color: #a6b8c7;
-  --card-bg: #f8fafc;
+  /* Midnight Dark Theme (Default for Generative Art) */
+  --bg-color: #0b1120;
+  --bg-surface: #131c31;
+  --bg-card: #18243c;
+  --main-color: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --border-color: #24324d;
+  --border-highlight: #38bdf8;
+  --highlight-color: rgba(14, 165, 233, 0.85);
+  --accent-color: #38bdf8;
+  --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  --canvas-border: #1e293b;
+  --topbar-bg: #111a2e;
+  --topbar-border: #1e293b;
 
   /* Typography */
-  --body-font: "Optima", "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --style-font: "Bad Script", cursive;
+  --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Layout & Sizing */
-  --card-size: 220px;
-  --border-radius: 8px;
-  --transition: all 0.3s ease;
+  /* Shadows & Glows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+  --glow: 0 0 24px rgba(56, 189, 248, 0.2);
+
+  --border-radius: 12px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --main-color: #142737;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+  --border-color: #e2e8f0;
+  --border-highlight: #0284c7;
+  --highlight-color: rgba(10, 45, 72, 0.85);
+  --accent-color: #0284c7;
+  --accent-gradient: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  --canvas-border: #142737;
+  --topbar-bg: #f1f5f9;
+  --topbar-border: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --glow: 0 0 20px rgba(2, 132, 199, 0.15);
 }

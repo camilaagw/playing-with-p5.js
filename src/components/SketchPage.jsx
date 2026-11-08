@@ -1,15 +1,20 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getSketchById } from '../sketches';
+import { useTheme } from '../utils/theme';
 import P5Wrapper from './P5Wrapper';
 import styles from './SketchPage.module.css';
 
 export default function SketchPage() {
   const { id } = useParams();
+  const { theme, toggleTheme } = useTheme();
+
   const [sketchFn, setSketchFn] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [renderKey, setRenderKey] = useState(0);
 
   const p5InstanceRef = useRef(null);
   const item = getSketchById(id);
@@ -43,19 +48,29 @@ export default function SketchPage() {
     }
   }, [item]);
 
+  const restartSketch = useCallback(() => {
+    setRenderKey((k) => k + 1);
+    setToastMessage('↺ Sketch restarted');
+    setTimeout(() => setToastMessage(null), 2000);
+  }, []);
+
   useEffect(() => {
     function handleKeyDown(e) {
-      // 's' or 'S' snapshots thumbnail (unless typing in an input)
-      if (
-        (e.key === 's' || e.key === 'S') &&
-        !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)
-      ) {
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+
+      if (e.key === 's' || e.key === 'S') {
         takeSnapshot();
+      } else if (e.key === 'f' || e.key === 'F') {
+        setFullscreen((prev) => !prev);
+      } else if (e.key === 'r' || e.key === 'R') {
+        restartSketch();
+      } else if (e.key === 'Escape') {
+        setFullscreen(false);
       }
     }
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [takeSnapshot]);
+  }, [takeSnapshot, restartSketch]);
 
   useEffect(() => {
     let isCancelled = false;
@@ -90,7 +105,7 @@ export default function SketchPage() {
     return () => {
       isCancelled = true;
     };
-  }, [id, item]);
+  }, [id, item, renderKey]);
 
   if (!item) {
     return (
@@ -114,32 +129,71 @@ export default function SketchPage() {
   }
 
   return (
-    <div className={styles.page}>
-      <div className={styles.topBar}>
-        <Link to="/" className={styles.backLink}>
-          ← Back to Gallery
-        </Link>
-        <div className={styles.topBarActions}>
-          {sketchFn && (
+    <div className={`${styles.page} ${fullscreen ? styles.fullscreenPage : ''}`}>
+      {!fullscreen && (
+        <div className={styles.topBar}>
+          <Link to="/" className={styles.backLink}>
+            ← Back to Gallery
+          </Link>
+          <div className={styles.topBarActions}>
+            {sketchFn && (
+              <>
+                <button
+                  onClick={restartSketch}
+                  className={styles.actionBtn}
+                  title="Restart sketch (shortcut: R)"
+                >
+                  ↺ Restart
+                </button>
+                <button
+                  onClick={() => setFullscreen(true)}
+                  className={styles.actionBtn}
+                  title="Toggle immersive fullscreen (shortcut: F)"
+                >
+                  ⛶ Fullscreen
+                </button>
+                <button
+                  onClick={takeSnapshot}
+                  className={styles.actionBtn}
+                  title="Save PNG thumbnail (shortcut: S)"
+                >
+                  📸 Snapshot
+                </button>
+              </>
+            )}
             <button
-              onClick={takeSnapshot}
-              className={styles.snapshotBtn}
-              title="Save a PNG snapshot of current canvas (shortcut: S)"
+              onClick={toggleTheme}
+              className={styles.themeBtn}
+              title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
             >
-              📸 Snapshot Thumbnail (S)
+              {theme === 'dark' ? '☀️' : '🌙'}
             </button>
-          )}
+          </div>
         </div>
-      </div>
+      )}
+
+      {fullscreen && (
+        <button
+          onClick={() => setFullscreen(false)}
+          className={styles.exitFullscreenBtn}
+          title="Exit fullscreen (ESC or F)"
+        >
+          ✕ Exit Fullscreen
+        </button>
+      )}
 
       {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
 
-      <div className={styles.content}>
-        <span className={styles.category}>{item.categoryLabel || item.category}</span>
-        <h1 className={styles.title}>{item.title}</h1>
-        <p className={styles.description}>{item.description}</p>
-        {item.instructions && (
-          <p className={styles.instructions}>{item.instructions}</p>
+      <div className={fullscreen ? styles.fullscreenContent : styles.content}>
+        {!fullscreen && (
+          <>
+            <span className={styles.category}>{item.categoryLabel || item.category}</span>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.description}>{item.description}</p>
+            {item.instructions && (
+              <p className={styles.instructions}>{item.instructions}</p>
+            )}
+          </>
         )}
 
         {loading ? (
@@ -147,7 +201,11 @@ export default function SketchPage() {
         ) : error ? (
           <div className={styles.loading}>{error}</div>
         ) : sketchFn ? (
-          <P5Wrapper sketch={sketchFn} onCanvasReady={handleCanvasReady} />
+          <P5Wrapper
+            key={`${id}-${renderKey}`}
+            sketch={sketchFn}
+            onCanvasReady={handleCanvasReady}
+          />
         ) : (
           <div className={styles.pendingCard}>
             <img

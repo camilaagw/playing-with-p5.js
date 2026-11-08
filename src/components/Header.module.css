@@ -1,55 +1,91 @@
 .header {
+  position: relative;
   width: 100%;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1.25rem;
   text-align: center;
 }
 
+.themeToggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--main-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.themeToggle:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--glow);
+  transform: scale(1.06);
+}
+
 .title {
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 0 0 10px 0;
+  font-size: 2.3rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
   letter-spacing: -0.5px;
 }
 
 .titleLink {
   color: var(--main-color);
   text-decoration: none;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
   transition: opacity 0.2s ease;
 }
 
 .titleLink:hover {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .lineContainer {
   width: 95%;
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8em;
+  gap: 1em;
 }
 
 .line {
   flex: 1;
   height: 2px;
-  border-radius: 1px;
-  background-color: var(--main-color);
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--border-color) 30%, var(--border-color) 70%, transparent 100%);
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(15deg) scale(1.08);
 }
 
 .subtitle {
   font-family: var(--style-font);
   font-weight: 800;
-  font-size: 1.35rem;
-  margin: 12px 0 0 0;
-  color: var(--main-color);
+  font-size: 1.4rem;
+  margin: 14px 0 0 0;
+  color: var(--text-muted);
 }

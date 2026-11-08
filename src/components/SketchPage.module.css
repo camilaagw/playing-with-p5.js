@@ -3,9 +3,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
-  padding-bottom: 2rem;
+  padding-top: 56px;
+  padding-bottom: 2.5rem;
   background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.fullscreenPage {
+  padding-top: 0;
+  padding-bottom: 0;
+  justify-content: center;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .topBar {
@@ -13,29 +22,31 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 44px;
-  background-color: #dbdfe4;
+  height: 52px;
+  background-color: var(--topbar-bg);
+  border-bottom: 1px solid var(--topbar-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 0 20px;
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
 }
 
 .backLink {
-  color: #5d5e6b;
+  color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   transition: color 0.2s ease;
 }
 
 .backLink:hover {
-  color: var(--main-color);
+  color: var(--accent-color);
 }
 
 .topBarActions {
@@ -44,26 +55,58 @@
   gap: 10px;
 }
 
-.snapshotBtn {
+.actionBtn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #ffffff;
-  border: 1px solid #c7ccd3;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
   color: var(--main-color);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-family: var(--body-font);
   font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 6px 12px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--transition);
 }
 
-.snapshotBtn:hover {
-  background: var(--main-color);
+.actionBtn:hover {
+  background: var(--bg-card);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+.themeBtn {
+  background: none;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.exitFullscreenBtn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  border-color: var(--main-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+
+.exitFullscreenBtn:hover {
+  background: #38bdf8;
+  color: #0f172a;
 }
 
 .toast {
@@ -71,12 +114,13 @@
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  background: #1e293b;
+  background: #0f172a;
+  border: 1px solid #38bdf8;
   color: #f8fafc;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 10px 22px;
+  border-radius: 10px;
   font-size: 0.88rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), var(--glow);
   z-index: 200;
   animation: fadeIn 0.25s ease-out;
 }
@@ -99,41 +143,51 @@
   text-align: center;
   max-width: 900px;
   width: 95%;
-  margin: 1rem auto 0 auto;
+  margin: 1.25rem auto 0 auto;
 }
 
-.title {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin: 0.5rem 0 0.25rem 0;
-  color: var(--main-color);
+.fullscreenContent {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .category {
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-muted);
+  letter-spacing: 1.2px;
+  color: var(--accent-color);
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
+.title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0.5rem 0;
+  color: var(--main-color);
+}
+
 .description {
-  color: #46464b;
+  color: var(--text-muted);
   font-size: 1.05rem;
-  max-width: 600px;
-  line-height: 1.5;
-  margin: 0 0 1.25rem 0;
+  max-width: 640px;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
 }
 
 .instructions {
   font-family: var(--style-font);
-  font-size: 1.25rem;
-  color: var(--highlight-color);
-  margin: 0.5rem 0 1rem 0;
+  font-size: 1.35rem;
+  color: var(--accent-color);
+  margin: 0.25rem 0 1.25rem 0;
 }
 
 .loading {
-  padding: 3rem;
+  padding: 4rem;
   color: var(--text-muted);
 }
 
@@ -141,8 +195,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  background: var(--card-bg);
+  padding: 2.5rem;
+  background: var(--bg-surface);
   border: 2px dashed var(--border-color);
   border-radius: var(--border-radius);
   margin: 1.5rem auto;
@@ -153,7 +207,8 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border: 6px solid var(--main-color);
+  border-radius: 8px;
+  border: 4px solid var(--canvas-border);
   margin-bottom: 1.5rem;
 }
 
@@ -165,13 +220,15 @@
 
 .legacyButton {
   display: inline-block;
-  padding: 8px 18px;
-  background: var(--main-color);
+  padding: 10px 22px;
+  background: var(--accent-gradient);
   color: #ffffff;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .legacyButton:hover {
