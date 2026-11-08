@@ -9,7 +9,7 @@
 const metaModules = import.meta.glob('./*/meta.js', { eager: true });
 const sketchLoaders = import.meta.glob('./*/sketch.js');
 
-// Catalog of all showcase sketches with their metadata and thumbnails
+// Catalog of known sketches with metadata and thumbnails
 const catalogList = [
   {
     id: 'shapes',
@@ -18,7 +18,6 @@ const catalogList = [
     categoryLabel: 'Generative Art',
     description: 'Experimenting with generative art. Click over the canvas to generate a new composition.',
     thumbnail: 'thumbnails/shapes.png',
-    legacyHref: 'generative-art/shapes/shapes.html',
     darkerOverlay: true,
   },
   {
@@ -28,7 +27,6 @@ const catalogList = [
     categoryLabel: 'Simulation',
     description: 'A cellular automaton that simulates the physics of falling sand particles with rainbow colors.',
     thumbnail: 'thumbnails/falling-sand.png',
-    legacyHref: 'falling-sand/index.html',
   },
   {
     id: 'vectors',
@@ -37,7 +35,6 @@ const catalogList = [
     categoryLabel: 'Physics & Vectors',
     description: 'Vectors and forces simulation creating organic, spark-like motion.',
     thumbnail: 'thumbnails/vectors.png',
-    legacyHref: 'basic-patterns/vectors/index.html',
   },
   {
     id: 'flow-field-pro',
@@ -46,7 +43,6 @@ const catalogList = [
     categoryLabel: 'Flow Fields',
     description: 'Perlin noise flow field driving hundreds of flowing particle lines.',
     thumbnail: 'thumbnails/flow-field-pro.png',
-    legacyHref: 'flow-field-pro/index.html',
   },
   {
     id: 'tree-of-life',
@@ -55,7 +51,6 @@ const catalogList = [
     categoryLabel: 'Generative Art',
     description: 'Fractal branching tree structure grown algorithmically.',
     thumbnail: 'thumbnails/tree-of-life.png',
-    legacyHref: 'tree-of-life/index.html',
   },
   {
     id: 'spirals',
@@ -64,7 +59,6 @@ const catalogList = [
     categoryLabel: 'Generative Art',
     description: 'Harmonic trigonometric spiral patterns rotating through coordinate space.',
     thumbnail: 'thumbnails/spirals.png',
-    legacyHref: 'generative-art/spirals/spirals.html',
   },
   {
     id: 'asteroids',
@@ -73,7 +67,6 @@ const catalogList = [
     categoryLabel: 'Flow Fields',
     description: 'Flow field simulation with asteroid particles traversing vector fields.',
     thumbnail: 'thumbnails/asteroids3.png',
-    legacyHref: 'flow-field/asteroids/index.html',
   },
   {
     id: 'confeti',
@@ -82,7 +75,6 @@ const catalogList = [
     categoryLabel: 'Generative Art',
     description: 'Vibrant geometric confetti bursts and particles with presets.',
     thumbnail: 'thumbnails/confeti.png',
-    legacyHref: 'generative-art/confeti/confeti.html',
     darkerOverlay: true,
   },
   {
@@ -92,7 +84,6 @@ const catalogList = [
     categoryLabel: 'Algorithms',
     description: '2D ray-casting algorithm simulating vision and light rays intersecting line segments.',
     thumbnail: 'thumbnails/ray-casting.png',
-    legacyHref: 'ray-casting/index.html',
   },
   {
     id: 'black-n-white',
@@ -101,7 +92,6 @@ const catalogList = [
     categoryLabel: 'Noise',
     description: 'High-contrast 2D Perlin noise exploration rendered in black and white.',
     thumbnail: 'thumbnails/black-n-white.png',
-    legacyHref: 'just-noise/black-n-white/index.html',
     darkerOverlay: true,
   },
   {
@@ -111,7 +101,6 @@ const catalogList = [
     categoryLabel: 'Physics & Vectors',
     description: 'Particle emitter and physics system with gravity and lifespan.',
     thumbnail: 'thumbnails/particle-systems.png',
-    legacyHref: 'particles/particle-systems/index.html',
   },
   {
     id: 'trazos',
@@ -120,7 +109,6 @@ const catalogList = [
     categoryLabel: 'Generative Art',
     description: 'Organic expressive brush strokes and generative painting gestures.',
     thumbnail: 'thumbnails/trazos.png',
-    legacyHref: 'generative-art/trazos-original/trazos.html',
     darkerOverlay: true,
   },
   {
@@ -130,7 +118,7 @@ const catalogList = [
     categoryLabel: 'Fractals',
     description: 'Complex number escape-time visualization of the famous Mandelbrot fractal.',
     thumbnail: 'thumbnails/mandelbrot.png',
-    legacyHref: 'fractals/maldelbrot/index.html',
+    darkerOverlay: true,
   },
   {
     id: 'pincelada-bard',
@@ -139,8 +127,15 @@ const catalogList = [
     categoryLabel: 'Generative Art',
     description: 'Generative brush stroke synthesis exploring AI-guided visual aesthetics.',
     thumbnail: 'thumbnails/pincelada-bard.png',
-    legacyHref: 'pincelada-gpt/index.html',
     darkerOverlay: true,
+  },
+  {
+    id: 'random-walker',
+    title: 'Random Walker',
+    category: 'algorithms',
+    categoryLabel: 'Algorithms',
+    description: 'Self-avoiding random walk algorithm exploring a discrete grid.',
+    thumbnail: 'thumbnails/shapes.png',
   },
 ];
 
@@ -152,23 +147,37 @@ export function getSketches() {
     const meta = mod.default || mod;
     const dir = path.split('/')[1];
     const loader = sketchLoaders[`./${dir}/sketch.js`];
-    discoveredMap.set(meta.id || dir, {
+    const sketchId = meta.id || dir;
+    discoveredMap.set(sketchId, {
       ...meta,
+      id: sketchId,
       hasLiveSketch: Boolean(loader),
       loadSketch: loader,
     });
   }
 
-  return catalogList.map((item) => {
+  // Start with items from catalogList
+  const seenIds = new Set();
+  const result = [];
+
+  for (const item of catalogList) {
+    seenIds.add(item.id);
     const discovered = discoveredMap.get(item.id);
     if (discovered) {
-      return { ...item, ...discovered };
+      result.push({ ...item, ...discovered });
+    } else {
+      result.push({ ...item, hasLiveSketch: false });
     }
-    return {
-      ...item,
-      hasLiveSketch: false,
-    };
-  });
+  }
+
+  // Append any newly discovered sketches not explicitly in catalogList
+  for (const [id, discovered] of discoveredMap.entries()) {
+    if (!seenIds.has(id)) {
+      result.push(discovered);
+    }
+  }
+
+  return result;
 }
 
 export function getSketchById(id) {
