@@ -7,8 +7,9 @@ import styles from './P5Wrapper.module.css';
  *
  * @param {Object} props
  * @param {Function} props.sketch - Instance mode function (p) => { ... }
+ * @param {Function} [props.onCanvasReady] - Callback invoked with the p5 instance once mounted
  */
-export default function P5Wrapper({ sketch }) {
+export default function P5Wrapper({ sketch, onCanvasReady }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -18,17 +19,23 @@ export default function P5Wrapper({ sketch }) {
 
     try {
       canvasInstance = new p5(sketch, containerRef.current);
+      if (onCanvasReady) {
+        onCanvasReady(canvasInstance);
+      }
     } catch (err) {
       console.error('Failed to initialize p5 instance:', err);
     }
 
     return () => {
       if (canvasInstance) {
+        if (onCanvasReady) {
+          onCanvasReady(null);
+        }
         canvasInstance.remove();
         canvasInstance = null;
       }
     };
-  }, [sketch]);
+  }, [sketch, onCanvasReady]);
 
   return <div ref={containerRef} className={styles.canvasContainer} />;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getSketchById } from '../sketches';
 import P5Wrapper from './P5Wrapper';
@@ -9,8 +9,53 @@ export default function SketchPage() {
   const [sketchFn, setSketchFn] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [toastMessage, setToastMessage] = useState(null);
 
+  const p5InstanceRef = useRef(null);
   const item = getSketchById(id);
+
+  const handleCanvasReady = useCallback((instance) => {
+    p5InstanceRef.current = instance;
+  }, []);
+
+  const takeSnapshot = useCallback(() => {
+    const inst = p5InstanceRef.current;
+    if (!inst || !inst.canvas) {
+      setToastMessage('Canvas not ready yet.');
+      return;
+    }
+
+    try {
+      const dataUrl = inst.canvas.toDataURL('image/png');
+      const downloadLink = document.createElement('a');
+      downloadLink.href = dataUrl;
+      downloadLink.download = `${item.id}.png`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+
+      setToastMessage(`📸 Snapshot saved as ${item.id}.png!`);
+      setTimeout(() => setToastMessage(null), 3500);
+    } catch (err) {
+      console.error('Failed to take snapshot:', err);
+      setToastMessage('Could not capture canvas snapshot.');
+      setTimeout(() => setToastMessage(null), 3500);
+    }
+  }, [item]);
+
+  useEffect(() => {
+    function handleKeyDown(e) {
+      // 's' or 'S' snapshots thumbnail (unless typing in an input)
+      if (
+        (e.key === 's' || e.key === 'S') &&
+        !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)
+      ) {
+        takeSnapshot();
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [takeSnapshot]);
 
   useEffect(() => {
     let isCancelled = false;
@@ -74,7 +119,20 @@ export default function SketchPage() {
         <Link to="/" className={styles.backLink}>
           ← Back to Gallery
         </Link>
+        <div className={styles.topBarActions}>
+          {sketchFn && (
+            <button
+              onClick={takeSnapshot}
+              className={styles.snapshotBtn}
+              title="Save a PNG snapshot of current canvas (shortcut: S)"
+            >
+              📸 Snapshot Thumbnail (S)
+            </button>
+          )}
+        </div>
       </div>
+
+      {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
 
       <div className={styles.content}>
         <span className={styles.category}>{item.categoryLabel || item.category}</span>
@@ -89,7 +147,7 @@ export default function SketchPage() {
         ) : error ? (
           <div className={styles.loading}>{error}</div>
         ) : sketchFn ? (
-          <P5Wrapper sketch={sketchFn} />
+          <P5Wrapper sketch={sketchFn} onCanvasReady={handleCanvasReady} />
         ) : (
           <div className={styles.pendingCard}>
             <img
@@ -98,18 +156,8 @@ export default function SketchPage() {
               className={styles.pendingThumbnail}
             />
             <p className={styles.pendingNotice}>
-              This sketch is queued for full React migration in Phase 3.
+              This sketch is queued for migration.
             </p>
-            {item.legacyHref && (
-              <a
-                href={item.legacyHref}
-                className={styles.legacyButton}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View Legacy Version ↗
-              </a>
-            )}
           </div>
         )}
       </div>
